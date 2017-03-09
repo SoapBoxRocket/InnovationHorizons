@@ -1,9 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Soap Box Rocket - Innovation Horizons</title>
+  <title>Soap Box Rocket - Innovation Horizons</title>
+  <script type="text/javascript">
+    function Draw(){
+      var img = document.getElementById("graph");
+      var cnvs = document.getElementById("myCanvas");
+
+      cnvs.style.position = "absolute";
+      cnvs.style.left = img.offsetLeft + "px";
+      cnvs.style.top = img.offsetTop + "px";
+
+      var ctx = cnvs.getContext("2d");
+      ctx.beginPath();
+      ctx.arc(250, 210, 200, 0, 2 * Math.PI, false);
+      ctx.lineWidth = 1;
+      ctx.strokeStyle = '#ff0000';
+      ctx.stroke();
+    }
+  </script>
 </head>
+<style>
+#container {
+    position: relative;
+}
+#circle {
+  font-size: 50px;
+  color: red;
+}
+#text {
+    z-index: 1;
+    position: absolute;
+    top: 23.5px;
+    left: 10.5px;
+    color: red;
+}
+#draw-btn {
+  font-size: 14px;
+  padding: 2px 16px 3px 16px;
+  margin-bottom: 8px;
+}
+</style>
 <body>
-<center><img src="images/HorizonsGraph.png"></center>
+    <center>
+      <img id="graph" src="images/HorizonsGraph.png">
+      <canvas id='myCanvas' width='550px' height='550px'></canvas>
+      <div>
+        <input id='draw-btn' type='button' value='Draw' onclick='Draw()' />
+      </div>
+    </center>
+  <div id="container">
+    <div id="circle">&#x25CB;</div>
+    <div id="text">1</div>
+  </div>
+  <div id="container">
+    <div id="circle">&#x25CB;</div>
+    <div id="text">2</div>
+  </div>
 </body>
 </html>
