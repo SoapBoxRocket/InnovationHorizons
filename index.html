@@ -5,7 +5,7 @@
   <script type="text/javascript">
     function Draw(){
       var img = document.getElementById("graph");
-      var cnvs = document.getElementById("myCanvas");
+      var cnvs = document.getElementById("graphCanvas");
 
       cnvs.style.position = "absolute";
       cnvs.style.left = img.offsetLeft + "px";
@@ -13,10 +13,15 @@
 
       var ctx = cnvs.getContext("2d");
       ctx.beginPath();
-      ctx.arc(250, 210, 200, 0, 2 * Math.PI, false);
-      ctx.lineWidth = 1;
-      ctx.strokeStyle = '#ff0000';
+      ctx.arc(50, 50, 10, 0, 2 * Math.PI, false);
+      ctx.lineWidth = 2;
+      ctx.strokeStyle = "red";
       ctx.stroke();
+
+      var ctx = cnvs.getContext("2d");
+      ctx.font = "15px Ariel";
+      ctx.fillStyle = "red";
+      ctx.fillText ("1", 46, 55);
     }
   </script>
 </head>
@@ -44,7 +49,12 @@
 <body>
     <center>
       <img id="graph" src="images/HorizonsGraph.png">
-      <canvas id='myCanvas' width='550px' height='550px'></canvas>
+      <canvas id='graphCanvas' width='550px' height='550px' style="border:1px solid #000000"></canvas>
+      <form>
+        Project Name:<br>
+        <input type="text" name="ProjName">
+        <br>
+        Market:<br>
       <div>
         <input id='draw-btn' type='button' value='Draw' onclick='Draw()' />
       </div>
