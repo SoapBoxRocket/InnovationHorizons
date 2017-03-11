@@ -49,14 +49,14 @@
 <body>
     <center>
       <img id="graph" src="images/HorizonsGraph.png">
-      <canvas id='graphCanvas' width='550px' height='550px' style="border:1px solid #000000"></canvas>
-      <form>
-        Project Name:<br>
-        <input type="text" name="ProjName">
-        <br>
-        Market:<br>
+      <canvas id='graphCanvas' width='500px' height='500px' style="border:1px solid #000000"></canvas>
+      <form action="welcome.php" method="post">
+        Project Name: <input type="text" name="projName"><br>
+        Market<br>Exsisting <input type="range" name="market" min="0" max="10"> New to World<br>
+        <input type="submit">
+      </form>
       <div>
-        <input id='draw-btn' type='button' value='Draw' onclick='Draw()' />
+        <input id='draw-btn' type='button' value='DRAW' onclick='Draw()' />
       </div>
     </center>
   <div id="container">
