@@ -48,8 +48,11 @@
   <?php
     $nameErr = $marketErr = $solutionErr = "";
     $name = $market = $solution = "";
+    $counter = 0;
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
+      $counter = test_input($_POST["counter"]);
+      $counter++;
       if (empty($_POST["name"])) {
         $nameErr = "Pleae provide a project name.";
       } else {
@@ -86,6 +89,7 @@
       <span class="error"> <?php echo $marketErr;?></span><br>
       Solution<br>Exsisting <input type="range" name="solution" min="0" max="10" value="0" step=".5"> New to World
       <span class="error"> <?php echo $solutionErr;?></span><br>
+      <input type="hidden" name="counter" value="<?php echo $counter;?>">
       <input type="submit" value="Add Project" onclick='Draw()'>
     </form>
   </center>
@@ -98,6 +102,8 @@
         echo    "<div id='circle'>&#x25CB;</div>";
         echo    "<div id='text'>1</div>";
         echo  "</div>";
+        echo $counter;
+        echo "<br>";
         echo "Project Name: ";
         echo $name;
         echo "<br>";
