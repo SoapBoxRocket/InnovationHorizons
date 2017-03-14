@@ -43,11 +43,6 @@
     left: 10.5px;
     color: red;
 }
-#draw-btn {
-  font-size: 14px;
-  padding: 2px 16px 3px 16px;
-  margin-bottom: 8px;
-}
 </style>
 <body>
   <?php
@@ -91,25 +86,28 @@
       <span class="error"> <?php echo $marketErr;?></span><br>
       Solution<br>Exsisting <input type="range" name="solution" min="0" max="10" value="0" step=".5"> New to World
       <span class="error"> <?php echo $solutionErr;?></span><br>
-      <input type="submit">
+      <input type="submit" value="Add Project" onclick='Draw()'>
     </form>
-    <div>
-      <input id='draw-btn' type='button' value='DRAW' onclick='Draw()' />
-    </div>
   </center>
   <br>
   <br>
   <center>
     <?php
-      echo "Project: ";
-      echo $name;
-      echo "<br>";
-      echo "Market: ";
-      echo $market;
-      echo "<br>";
-      echo "Solution ";
-      echo $solution;
-      echo "<br>";
+      if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        echo "<div id='container'>";
+        echo    "<div id='circle'>&#x25CB;</div>";
+        echo    "<div id='text'>1</div>";
+        echo  "</div>";
+        echo "Project Name: ";
+        echo $name;
+        echo "<br>";
+        echo "Market Fit: ";
+        echo $market;
+        echo "<br>";
+        echo "Solution Fit: ";
+        echo $solution;
+        echo "<br>";
+      }
     ?>
   </center>
   <div id="container">
