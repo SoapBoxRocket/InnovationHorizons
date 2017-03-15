@@ -70,6 +70,17 @@
       } else {
         $solution = test_input($_POST["solution"]);
       }
+
+      $projfile = fopen("projfile.txt", "a") or die("No known Innovations!");
+      fwrite ($projfile, $counter);
+      fwrite ($projfile, $name);
+      fwrite ($projfile, $market);
+      fwrite ($projfile, $solution);
+      fclose ($projfile);
+
+    } else {
+        $projfile = fopen("projlist.txt", "w");
+        fclose ($projfile);
     }
 
     function test_input($data) {
@@ -94,25 +105,12 @@
     </form>
   </center>
   <br>
-  <br>
   <center>
     <?php
       if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        echo "<div id='container'>";
-        echo    "<div id='circle'>&#x25CB;</div>";
-        echo    "<div id='text'>1</div>";
-        echo  "</div>";
-        echo $counter;
-        echo "<br>";
-        echo "Project Name: ";
-        echo $name;
-        echo "<br>";
-        echo "Market Fit: ";
-        echo $market;
-        echo "<br>";
-        echo "Solution Fit: ";
-        echo $solution;
-        echo "<br>";
+        $projfile = fopen("projlist.txt", "r") or die("Sorry, no innovation!");
+        echo fread($projfile,filesize("projlist.txt"));
+        fclose($projfile);
       }
     ?>
   </center>
