@@ -74,9 +74,13 @@
 
       $projfile = fopen("projlist.txt", "a") or die("No known Innovations!");
       fwrite ($projfile, $counter);
+      fwrite ($projfile, ",");
       fwrite ($projfile, $name);
+      fwrite ($projfile, ",");
       fwrite ($projfile, $market);
+      fwrite ($projfile, ",");
       fwrite ($projfile, $solution);
+      fwrite ($projfile, ",");
       fclose ($projfile);
 
     } else {
