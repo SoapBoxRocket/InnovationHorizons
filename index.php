@@ -49,6 +49,7 @@
     $nameErr = $marketErr = $solutionErr = "";
     $name = $market = $solution = "";
     $counter = 0;
+    $projfile = "";
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $counter = test_input($_POST["counter"]);
@@ -71,7 +72,7 @@
         $solution = test_input($_POST["solution"]);
       }
 
-      $projfile = fopen("projfile.txt", "a") or die("No known Innovations!");
+      $projfile = fopen("projlist.txt", "a") or die("No known Innovations!");
       fwrite ($projfile, $counter);
       fwrite ($projfile, $name);
       fwrite ($projfile, $market);
