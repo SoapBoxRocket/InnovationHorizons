@@ -117,9 +117,9 @@
         $projlist = file_get_contents($projfile);
         $projinfo = explode(',', $projlist);
 
-        $projloop = "0";
-        $projcount = "0";
-        while ($projloop <= $counter) {
+        $projloop = 0;
+        $projcount = 0;
+        while ($projloop < $counter) {
           echo "<br>";
           echo "Project ID: ";
           echo $projinfo[$projcount];
@@ -137,6 +137,7 @@
           echo $projinfo[$projcount];
           $projcount++;
           echo "<br>";
+          $projloop++;
         }
       }
     ?>
