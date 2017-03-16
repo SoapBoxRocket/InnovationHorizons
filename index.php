@@ -113,9 +113,31 @@
   <center>
     <?php
       if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $projfile = fopen("projlist.txt", "r") or die("Sorry, no innovation!");
-        echo fread($projfile,filesize("projlist.txt"));
-        fclose($projfile);
+        $projfile = "projlist.txt";
+        $projlist = file_get_contents($projfile);
+        $projinfo = explode(',', $projlist);
+
+        $projloop = "0";
+        $projcount = "0";
+        while ($projloop <= $counter) {
+          echo "<br>";
+          echo "Project ID: ";
+          echo $projinfo[$projcount];
+          $projcount++;
+          echo "<br>";
+          echo "Project Name: ";
+          echo $projinfo[$projcount];
+          $projcount++;
+          echo "<br>";
+          echo "Market fit: ";
+          echo $projinfo[$projcount];
+          $projcount++;
+          echo "<br>";
+          echo "Solution fit: ";
+          echo $projinfo[$projcount];
+          $projcount++;
+          echo "<br>";
+        }
       }
     ?>
   </center>
