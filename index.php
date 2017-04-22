@@ -168,17 +168,17 @@
         echo "Project Balance";
         echo "<br>";
         echo "Incremental ";
-        echo $inb;
+        echo (round($inb,0));
         echo "%";
         echo " Target ~70%";
         echo "<br>";
         echo "Evolutionary ";
-        echo $evb;
+        echo (round($evb,0));
         echo "%";
         echo " Target ~20%";
         echo "<br>";
         echo "Revolutionary ";
-        echo $reb;
+        echo (round($reb,0));
         echo "%";
         echo " Target ~10%";
       }
