@@ -119,6 +119,9 @@
 
         $projloop = 0;
         $projcount = 0;
+        $in = 0;
+        $ev = 0;
+        $re = 0;
         while ($projloop < $counter) {
           echo "<br>";
           echo "Project ID: ";
@@ -131,14 +134,53 @@
           echo "<br>";
           echo "Market fit: ";
           echo $projinfo[$projcount];
+          $y = $projinfo[$projcount];
           $projcount++;
           echo "<br>";
           echo "Solution fit: ";
           echo $projinfo[$projcount];
+          $x = $projinfo[$projcount];
           $projcount++;
           echo "<br>";
+          $r = $x * $x + $y * $y;
+          echo "Horizon: ";
+          if ($r < "12.25") {
+            echo "Incremental";
+            $in++;
+          } elseif ($r < "49") {
+            echo "Evolutionary";
+            $ev++;
+          } else {
+            echo "Revolutionary";
+            $re++;
+          }
           $projloop++;
         }
+        //Project Balance Calculation;
+        $inb = 0;
+        $evb = 0;
+        $reb = 0;
+        $total = $in + $ev + $re;
+        $inb = ($in / $total) * 100;
+        $evb = ($ev / $total) * 100;
+        $reb = ($re / $total) * 100;
+        echo "<br>";
+        echo "Project Balance";
+        echo "<br>";
+        echo "Incremental ";
+        echo $inb;
+        echo "%";
+        echo " Target ~70%";
+        echo "<br>";
+        echo "Evolutionary ";
+        echo $evb;
+        echo "%";
+        echo " Target ~20%";
+        echo "<br>";
+        echo "Revolutionary ";
+        echo $reb;
+        echo "%";
+        echo " Target ~10%";
       }
     ?>
   </center>
